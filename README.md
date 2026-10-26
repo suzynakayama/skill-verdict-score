@@ -8,13 +8,13 @@ Agent Skills are folders with a `SKILL.md` file that teach an AI agent how to do
 
 ## What it checks
 
-| Category | Points | Looks for |
-| --- | ---: | --- |
-| Validity | 25 | Broken frontmatter, name and description limits, missing files, script syntax errors |
-| Triggering | 25 | A description that says what the skill does and when to use it, so the agent actually picks it |
-| Weight | 20 | Context cost: very long files, token estimate, big inline code, huge attachments |
-| Security | 20 | Leaked secrets, hidden Unicode, pipe-to-shell installs, credential paths, "hide this from the user" language, risky Python and shell calls |
-| Hygiene | 10 | Junk files, placeholders, orphan files, license, examples |
+| Category   | Points | Looks for                                                                                                                                  |
+| ---------- | -----: | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Validity   |     25 | Broken frontmatter, name and description limits, missing files, script syntax errors                                                       |
+| Triggering |     25 | A description that says what the skill does and when to use it, so the agent actually picks it                                             |
+| Weight     |     20 | Context cost: very long files, token estimate, big inline code, huge attachments                                                           |
+| Security   |     20 | Leaked secrets, hidden Unicode, pipe-to-shell installs, credential paths, "hide this from the user" language, risky Python and shell calls |
+| Hygiene    |     10 | Junk files, placeholders, orphan files, license, examples                                                                                  |
 
 94 rules in total (82 for skills and 12 for plugins). Run `--list-rules` to see them all, or read [rules.md](skills/skill-verdict-score/references/rules.md). Scoring, caps and the sources behind every number are in [scoring.md](skills/skill-verdict-score/references/scoring.md).
 
@@ -54,20 +54,33 @@ Helper_Tool   examples/sick-skill
 
 ## Install it as a skill
 
-Pick one.
+There are four ways to install it. You only need **one**: the one that matches where you use Claude.
 
-**Copy the folder.** Put `skills/skill-verdict-score` in `~/.claude/skills/` (personal) or `.claude/skills/` in a project. Then ask your agent: "Audit my skills folder."
+| Where you use Claude                 | Do this                                           |
+| ------------------------------------ | ------------------------------------------------- |
+| Claude.ai (website or app)           | [Option 1](#option-1-claudeai)                    |
+| Claude Code, the simplest way        | [Option 2](#option-2-claude-code-copy-the-folder) |
+| Claude Code, as a plugin             | [Option 3](#option-3-claude-code-plugin)          |
+| Another tool that reads Agent Skills | [Option 4](#option-4-the-skills-cli)              |
 
-**Claude Code plugin marketplace.**
+### Option 1: Claude.ai
+
+Zip only the `skills/skill-verdict-score` folder (the folder itself at the top of the zip, with one `SKILL.md` and no plugin manifest; the whole repository is rejected) and upload it under Settings, Capabilities, Skills. Uploading custom skills needs a plan and settings that allow code execution, so check what your account offers.
+
+### Option 2: Claude Code, copy the folder
+
+Put `skills/skill-verdict-score` in `~/.claude/skills/` (all your projects) or `.claude/skills/` (one project). Then ask your agent: "Audit my skills folder."
+
+### Option 3: Claude Code plugin
 
 ```text
 /plugin marketplace add suzynakayama/skill-verdict-score
 /plugin install skill-verdict-score@skill-verdict-score
 ```
 
-**With the `skills` CLI**, if you use it: `npx skills add suzynakayama/skill-verdict-score`.
+### Option 4: the `skills` CLI
 
-**Claude.ai.** Zip only the `skills/skill-verdict-score` folder (the folder itself at the top of the zip, with one `SKILL.md` and no plugin manifest; the whole repository is rejected) and upload it under Settings, Capabilities, Skills. Uploading custom skills needs a plan and settings that allow code execution, so check what your account offers.
+If you use it: `npx skills add suzynakayama/skill-verdict-score`.
 
 ## Use it in CI
 
@@ -79,24 +92,24 @@ Exit codes: `0` ok, `1` a threshold was crossed, `2` usage error.
 
 ## Options
 
-| Option | What it does |
-| --- | --- |
-| `--format text\|json\|markdown` | Choose the report format |
-| `-o FILE` | Write the report to a file |
-| `--svg PATH` | Write a 1200x630 scorecard image (a folder when auditing several skills) |
-| `--badge PATH` | Write a small README badge |
-| `--fail-under N` | Exit 1 if any score is below N |
-| `--fail-on LEVEL` | Exit 1 if any finding reaches `warn`, `error` or `critical` |
-| `--ignore S011,T002` | Skip rules that do not fit |
-| `--only security` | Audit selected categories |
-| `--min-severity LEVEL` | Hide findings below a level |
-| `--explain CODE` | Why a rule exists and how to fix it |
-| `--plugin [ROOT]` | Also audit what the plugin installs (agents, hooks, scripts, installers, CI, dependencies) in its own score block |
-| `--plugin-affects-skills` | With `--plugin`, add the findings of the scripts a skill calls to that skill's score (off by default) |
-| `--online` | Reserved for checks that need the network. Does nothing in this version |
-| `--list-rules` | List every rule |
-| `--max-depth N` | How deep to look for skills in a folder |
-| `--no-color`, `--ascii` | Plain output |
+| Option                          | What it does                                                                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `--format text\|json\|markdown` | Choose the report format                                                                                          |
+| `-o FILE`                       | Write the report to a file                                                                                        |
+| `--svg PATH`                    | Write a 1200x630 scorecard image (a folder when auditing several skills)                                          |
+| `--badge PATH`                  | Write a small README badge                                                                                        |
+| `--fail-under N`                | Exit 1 if any score is below N                                                                                    |
+| `--fail-on LEVEL`               | Exit 1 if any finding reaches `warn`, `error` or `critical`                                                       |
+| `--ignore S011,T002`            | Skip rules that do not fit                                                                                        |
+| `--only security`               | Audit selected categories                                                                                         |
+| `--min-severity LEVEL`          | Hide findings below a level                                                                                       |
+| `--explain CODE`                | Why a rule exists and how to fix it                                                                               |
+| `--plugin [ROOT]`               | Also audit what the plugin installs (agents, hooks, scripts, installers, CI, dependencies) in its own score block |
+| `--plugin-affects-skills`       | With `--plugin`, add the findings of the scripts a skill calls to that skill's score (off by default)             |
+| `--online`                      | Reserved for checks that need the network. Does nothing in this version                                           |
+| `--list-rules`                  | List every rule                                                                                                   |
+| `--max-depth N`                 | How deep to look for skills in a folder                                                                           |
+| `--no-color`, `--ascii`         | Plain output                                                                                                      |
 
 ## Plugins
 
