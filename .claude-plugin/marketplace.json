@@ -1,0 +1,11 @@
+{
+  "name": "skill-verdict-score",
+  "owner": { "name": "Suzy Nakayama" },
+  "plugins": [
+    {
+      "name": "skill-verdict-score",
+      "source": "./",
+      "description": "A health check for Agent Skills: scores a skill or folder of skills 0-100 with a security scan and a list of fixes."
+    }
+  ]
+}

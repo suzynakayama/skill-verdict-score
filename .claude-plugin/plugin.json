@@ -1,0 +1,10 @@
+{
+  "name": "skill-verdict-score",
+  "version": "1.3.0",
+  "description": "A health check for Agent Skills: scores a skill or folder of skills 0-100 with a security scan and a list of fixes.",
+  "author": { "name": "Suzy Nakayama" },
+  "homepage": "https://github.com/suzynakayama/skill-verdict-score",
+  "repository": "https://github.com/suzynakayama/skill-verdict-score",
+  "license": "MIT",
+  "keywords": ["skills", "lint", "security", "audit"]
+}
