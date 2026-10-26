@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Skill Verdict Score scorecard for skill-verdict-score: 100 out of 100, grade A">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#18203d"/></linearGradient></defs>
+<style>
+text{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;fill:#e6eaf7}
+.brand{font-size:20px;font-weight:700;letter-spacing:4px;fill:#8ea0ff}
+.ver{font-size:16px;fill:#6b7699}
+.name{font-size:46px;font-weight:800}
+.verdict{font-size:24px;font-weight:600}
+.lab{font-size:20px;fill:#b7c0df}
+.val{font-size:18px;fill:#b7c0df}
+.head{font-size:16px;font-weight:700;letter-spacing:3px;fill:#6b7699}
+.issue{font-size:18px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#cfd6ee}
+.big{font-size:118px;font-weight:800;text-anchor:middle}
+.small{font-size:26px;fill:#8d97ba;text-anchor:middle}
+.pill{font-size:26px;font-weight:800;text-anchor:middle;letter-spacing:2px}
+.foot{font-size:15px;fill:#6b7699}
+</style>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<text x="60" y="70" class="brand">SKILL VERDICT SCORE</text>
+<text x="1140" y="70" class="ver" text-anchor="end">v1.3.0</text>
+<circle cx="300" cy="330" r="140" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="28"/>
+<circle cx="300" cy="330" r="140" fill="none" stroke="#34d399" stroke-width="28" stroke-linecap="round" stroke-dasharray="879.6 879.6" transform="rotate(-90 300 330)"/>
+<text x="300" y="352" class="big" style="fill:#34d399">100</text>
+<text x="300" y="396" class="small">out of 100</text>
+<rect x="225" y="500" width="150" height="48" rx="24" fill="#34d399" fill-opacity="0.16" stroke="#34d399" stroke-width="2"/>
+<text x="300" y="534" class="pill" style="fill:#34d399">GRADE A</text>
+<text x="560" y="150" class="name">skill-verdict-score</text>
+<text x="560" y="196" class="verdict" style="fill:#34d399">Picture of health</text>
+<text x="560" y="274" class="lab">Validity</text><rect x="700" y="262" width="330" height="14" rx="7" fill="#ffffff" fill-opacity="0.09"/><rect x="700" y="262" width="330.0" height="14" rx="7" fill="#34d399"/><text x="1130" y="274" class="val" text-anchor="end">25/25</text>
+<text x="560" y="314" class="lab">Triggering</text><rect x="700" y="302" width="330" height="14" rx="7" fill="#ffffff" fill-opacity="0.09"/><rect x="700" y="302" width="330.0" height="14" rx="7" fill="#34d399"/><text x="1130" y="314" class="val" text-anchor="end">25/25</text>
+<text x="560" y="354" class="lab">Weight</text><rect x="700" y="342" width="330" height="14" rx="7" fill="#ffffff" fill-opacity="0.09"/><rect x="700" y="342" width="330.0" height="14" rx="7" fill="#34d399"/><text x="1130" y="354" class="val" text-anchor="end">20/20</text>
+<text x="560" y="394" class="lab">Security</text><rect x="700" y="382" width="330" height="14" rx="7" fill="#ffffff" fill-opacity="0.09"/><rect x="700" y="382" width="330.0" height="14" rx="7" fill="#34d399"/><text x="1130" y="394" class="val" text-anchor="end">20/20</text>
+<text x="560" y="434" class="lab">Hygiene</text><rect x="700" y="422" width="330" height="14" rx="7" fill="#ffffff" fill-opacity="0.09"/><rect x="700" y="422" width="330.0" height="14" rx="7" fill="#34d399"/><text x="1130" y="434" class="val" text-anchor="end">10/10</text>
+<text x="560" y="500" class="head">TOP FIXES</text>
+<text x="560" y="540" class="issue">No warnings or errors. Healthy skill.</text>
+<text x="60" y="605" class="foot">67 lines, ~1262 body tokens, ~66 tokens always loaded, 4 files</text>
+</svg>
