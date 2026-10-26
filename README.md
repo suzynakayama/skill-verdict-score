@@ -25,7 +25,7 @@ A leaked secret caps the score at 49. A serious security finding caps it at 64. 
 No installs, no network, Python standard library only.
 
 ```bash
-git clone https://github.com/YOUR-USER/skill-verdict-score
+git clone https://github.com/suzynakayama/skill-verdict-score
 cd skill-verdict-score
 python3 skills/skill-verdict-score/scripts/skill_verdict_score.py examples/sick-skill
 python3 skills/skill-verdict-score/scripts/skill_verdict_score.py ~/.claude/skills
@@ -61,11 +61,11 @@ Pick one.
 **Claude Code plugin marketplace.**
 
 ```text
-/plugin marketplace add YOUR-USER/skill-verdict-score
+/plugin marketplace add suzynakayama/skill-verdict-score
 /plugin install skill-verdict-score@skill-verdict-score
 ```
 
-**With the `skills` CLI**, if you use it: `npx skills add YOUR-USER/skill-verdict-score`.
+**With the `skills` CLI**, if you use it: `npx skills add suzynakayama/skill-verdict-score`.
 
 **Claude.ai.** Zip only the `skills/skill-verdict-score` folder (the folder itself at the top of the zip, with one `SKILL.md` and no plugin manifest; the whole repository is rejected) and upload it under Settings, Capabilities, Skills. Uploading custom skills needs a plan and settings that allow code execution, so check what your account offers.
 
